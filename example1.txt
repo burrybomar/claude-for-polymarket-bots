@@ -1,0 +1,2 @@
+/create_single_strategy_bot create a bot that is focused on market making. it should trade in a safe enough way where it pays attention to order flow, order
+ book spreads, and manages its positions conservatively to ensure it is not falling under adverse selection issues (where it executes incorrect/lossy orders).
