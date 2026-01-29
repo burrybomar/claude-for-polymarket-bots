@@ -1,16 +1,16 @@
-# Claude Code for Polymarket Bots
+# Claude Code for Kalshi Bots
 
-A comprehensive Claude Code configuration for building Polymarket prediction market trading bots. This project provides specialized agents, skills, and commands that enable Claude Code to research, scaffold, and audit trading bots with deep knowledge of Polymarket's APIs.
+A comprehensive Claude Code configuration for building Kalshi prediction market trading bots. This project provides specialized agents, skills, and commands that enable Claude Code to research, scaffold, and audit trading bots with deep knowledge of Kalshi's APIs.
 
 ## What This Project Does
 
 This is a **Claude Code configuration project** - it enhances Claude Code with:
 
-- **Specialized Agents**: Research and implementation agents with Polymarket domain expertise
-- **Skills**: On-demand knowledge modules (fee calculations, crypto market mechanics)
+- **Specialized Agents**: Research and implementation agents with Kalshi domain expertise
+- **Skills**: On-demand knowledge modules for Kalshi market discovery, fee schedules, and event mechanics
 - **Commands**: Workflow automation for bot creation, auditing, and verification
 
-When you use Claude Code in this directory, it gains the ability to build complete, working Polymarket trading bots through a structured research → scaffold → audit pipeline.
+When you use Claude Code in this directory, it gains the ability to build complete, working Kalshi trading bots through a structured research → scaffold → audit pipeline.
 
 ## Quick Start
 
@@ -21,8 +21,8 @@ When you use Claude Code in this directory, it gains the ability to build comple
 
 2. **Clone this repository**:
    ```bash
-   git clone https://github.com/your-username/claude-for-polymarket-bots.git
-   cd claude-for-polymarket-bots
+   git clone https://github.com/your-username/claude-for-kalshi-bots.git
+   cd claude-for-kalshi-bots
    ```
 
 3. **Start Claude Code**:
@@ -73,29 +73,23 @@ Skills provide specialized knowledge that Claude can invoke on-demand:
 
 | Skill | When It's Used |
 |-------|----------------|
-| `crypto-short-term-markets` | Research BTC/ETH/SOL 15-minute and 1-hour prediction markets |
-| `polymarket-fee-knowledge` | Fee calculations, maker rebates, break-even analysis for 15-min crypto markets |
+| `kalshi-event-markets` | Market discovery, event slugs, and category research for Kalshi |
+| `kalshi-fee-knowledge` | Fee schedules, cost modeling, and break-even analysis for Kalshi |
 | `context-optimizer` | Optimize context window before compaction |
 
 ### Fee Knowledge Highlights
 
-15-minute crypto markets (BTC, ETH, SOL, XRP) are the **only** Polymarket markets with fees:
-
-| Role | Fee |
-|------|-----|
-| Maker | 0% + rebates |
-| Taker | Up to ~3% at 50% price |
-
-Fee formulas:
-- **Selling**: `feeQuote = baseRate × min(price, 1-price) × size` (USDC)
-- **Buying**: `feeBase = baseRate × min(price, 1-price) × (size/price)` (tokens)
+Kalshi fees can change by product, volume tier, or execution type. The `kalshi-fee-knowledge` skill guides the agent to:
+- Locate the current fee schedule in official documentation
+- Model per-contract or per-dollar fees for a strategy
+- Incorporate fee drag into P&L and risk limits
 
 ## Specialized Agents
 
 This configuration includes 30+ specialized agents for research and implementation:
 
 ### Research Agents
-- `polymarket-researcher` - Polymarket APIs, trading strategies, best practices
+- `kalshi-researcher` - Kalshi APIs, trading strategies, best practices
 - `news-researcher` / `news-researcher-lite` - Current news and developments
 - `financial-markets-researcher` - Market indicators, asset prices, derivatives
 - `social-media-researcher` - Sentiment analysis, viral discussions
@@ -106,8 +100,8 @@ This configuration includes 30+ specialized agents for research and implementati
 - `technical-researcher` - Code snippets, official documentation
 
 ### Implementation Agents
-- `polymarket-bot-scaffolder` - Creates complete bot project structures
-- `polymarket-bot-auditor` - Comprehensive bot auditing against specifications
+- `kalshi-bot-scaffolder` - Creates complete bot project structures
+- `kalshi-bot-auditor` - Comprehensive bot auditing against specifications
 - `codebase-analyzer` - Analyzes implementation details
 - `logic-auditor` - Deep, skeptical audit of code logic
 - `change-verifier` - Creates and runs verification scripts
@@ -126,7 +120,7 @@ The `/create_single_strategy_bot` command follows a structured pipeline:
    ↓
 4. Write Strategy Spec to thoughts/
    ↓
-5. Invoke Crypto Markets Skill (if applicable)
+5. Invoke Market Research Skill (if applicable)
    ↓
 6. Spawn Research Agent → writes findings
    ↓
@@ -137,34 +131,34 @@ The `/create_single_strategy_bot` command follows a structured pipeline:
 9. Present Results
 ```
 
-All context passes through markdown files in `thoughts/shared/polymarket-bot-specs/`.
+All context passes through markdown files in `thoughts/shared/kalshi-bot-specs/`.
 
 ## Project Structure
 
 ```
 .claude/
 ├── agents/           # 30+ specialized agent configurations
-│   ├── polymarket-researcher.md
-│   ├── polymarket-bot-scaffolder.md
-│   ├── polymarket-bot-auditor.md
+│   ├── kalshi-researcher.md
+│   ├── kalshi-bot-scaffolder.md
+│   ├── kalshi-bot-auditor.md
 │   └── ...
 ├── commands/         # Slash command definitions
 │   ├── create_single_strategy_bot.md
 │   ├── verify_changes.md
 │   └── ...
 ├── skills/           # On-demand knowledge modules
-│   ├── crypto-short-term-markets/
-│   ├── polymarket-fee-knowledge/
+│   ├── kalshi-event-markets/
+│   ├── kalshi-fee-knowledge/
 │   └── context-optimizer/
 └── settings.local.json
 
 thoughts/             # Working directory for agent context
 └── shared/
-    └── polymarket-bot-specs/
+    └── kalshi-bot-specs/
         ├── {timestamp}-{strategy}.md
         └── {timestamp}-{strategy}-research.md
 
-polymarket-bots/      # Generated bots are created here
+kalshi-bots/      # Generated bots are created here
 └── {strategy-slug}/
     ├── bot.py
     ├── config.py
@@ -172,35 +166,27 @@ polymarket-bots/      # Generated bots are created here
     └── .env.example
 ```
 
-## Polymarket API Knowledge
+## Kalshi API Knowledge
 
-The configuration includes deep knowledge of Polymarket's APIs:
+The configuration includes guidance on Kalshi's trading APIs and market data surfaces, including:
 
-| API | Purpose | Auth |
-|-----|---------|------|
-| **Gamma API** (`gamma-api.polymarket.com`) | Market discovery, metadata | None |
-| **CLOB API** (`clob.polymarket.com`) | Trading, orderbooks, prices | L1/L2 |
-| **Data API** (`data-api.polymarket.com`) | Positions, trade history | Required |
+| API Surface | Purpose | Auth |
+|-------------|---------|------|
+| **Trading API** (REST/WebSocket) | Orders, fills, positions | Required |
+| **Market discovery** (public REST) | Market metadata, event catalogs | Usually none |
 
-### Rate Limits
-
-| Endpoint | Limit (per 10s) |
-|----------|-----------------|
-| POST /order | 3,500 burst |
-| DELETE /order | 3,000 burst |
-| Market data | 1,500 |
-| General | 9,000 |
+The exact base URLs and authentication steps are captured in the `kalshi-researcher` output and used by the scaffolder to configure the bot.
 
 ## Requirements
 
 - [Claude Code](https://docs.claude.ai/claude-code) CLI
 - Python 3.9+ (for generated bots)
-- Polymarket account with API credentials
+- Kalshi account with API credentials
 
 ## Generated Bot Dependencies
 
 Bots created by this configuration use:
-- `py-clob-client` - Official Polymarket Python SDK
+- `requests` + `websockets` (or the official Kalshi SDK, if available)
 - `python-dotenv` - Environment configuration
 - Standard libraries for logging, scheduling, etc.
 

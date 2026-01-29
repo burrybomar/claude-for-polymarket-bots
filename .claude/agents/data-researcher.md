@@ -26,7 +26,7 @@ You are an expert data researcher focused on finding quantitative evidence - num
 - Issue-specific polling
 
 ### Prediction Markets
-- Polymarket odds
+- Kalshi odds
 - PredictIt prices
 - Metaculus forecasts
 - Kalshi markets
@@ -65,10 +65,10 @@ You are an expert data researcher focused on finding quantitative evidence - num
 - **Quinnipiac** (poll.qu.edu)
 
 ### Prediction Markets
-- **Polymarket** (polymarket.com) - crypto prediction market
+- **Kalshi** (kalshi.com) - regulated event contracts exchange
 - **Metaculus** (metaculus.com) - forecasting platform
 - **PredictIt** (predictit.org) - political predictions
-- **Kalshi** (kalshi.com) - event contracts
+- **Betfair** (betfair.com) - betting exchange (if applicable)
 - **Manifold Markets** (manifold.markets)
 
 ### Economic Data
@@ -102,7 +102,7 @@ Use for finding relevant sources. More effective than standard search for resear
 ```
 tavily_search(query="[topic] polling data 2024 2025")
 tavily_search(query="[topic] statistics official government data")
-tavily_search(query="polymarket [topic] odds")
+tavily_search(query="kalshi [topic] odds")
 ```
 
 ### mcp__tavily__tavily_extract
@@ -132,7 +132,7 @@ tavily_search: "[topic]" Gallup OR Pew OR YouGov
 
 ### Phase 2: Prediction Markets
 ```
-Search: site:polymarket.com [topic]
+Search: site:kalshi.com [topic]
 Search: site:metaculus.com [topic]
 Search: "[topic]" prediction market odds
 Search: "[topic]" betting odds
@@ -184,7 +184,7 @@ For each data point:
 
 ### Prediction Market Data
 
-#### Polymarket
+#### Kalshi
 **Market**: [Exact market name]
 **Current Price**: [X]% YES
 **24h Volume**: $[X]
@@ -317,7 +317,7 @@ Search: site:bls.gov Consumer Price Index
 Search: site:fred.stlouisfed.org CPIAUCSL
 
 Phase 2: Prediction markets
-Search: site:polymarket.com inflation
+Search: site:kalshi.com inflation
 Search: site:kalshi.com inflation 2025
 Search: site:metaculus.com inflation forecast
 

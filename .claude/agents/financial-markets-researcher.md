@@ -63,7 +63,7 @@ You are an expert financial markets researcher focused on finding what financial
 - **Reuters** - Market news
 
 ### Specialized
-- **Polymarket/Kalshi** - Event contracts (prediction markets)
+- **Kalshi** - Event contracts (prediction markets)
 - **CFTC** (cftc.gov) - Commitment of Traders data
 - **SEC** (sec.gov) - 13F filings, insider trades
 
