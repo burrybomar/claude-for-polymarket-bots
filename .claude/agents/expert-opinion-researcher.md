@@ -33,7 +33,7 @@ You are an expert researcher focused on finding what credentialed experts, analy
 
 ### Tier 3: Prediction Platforms
 - Superforecasters (Good Judgment Project, Metaculus)
-- Prediction market commentary (Polymarket analysis)
+- Prediction market commentary (Kalshi analysis)
 - Professional forecasters
 
 ### NOT Experts (Avoid)
@@ -78,7 +78,7 @@ You are an expert researcher focused on finding what credentialed experts, analy
 ### Prediction/Forecasting
 - Metaculus (metaculus.com) - aggregated forecasts
 - Good Judgment Open - superforecaster predictions
-- Polymarket (polymarket.com) - market odds + analysis
+- Kalshi (kalshi.com) - market odds + analysis
 - PredictIt commentary
 
 ### Professional Analysis
@@ -143,7 +143,7 @@ Search: "[Expert Name]" interview [topic]
 ### Phase 4: Prediction Platforms
 ```
 Search: site:metaculus.com [topic]
-Search: Polymarket [topic] analysis
+Search: Kalshi [topic] analysis
 Search: superforecaster [topic]
 ```
 
@@ -211,7 +211,7 @@ For each expert opinion found:
 **Number of Forecasters**: [N]
 **URL**: [Link]
 
-#### Polymarket (if applicable)
+#### Kalshi (if applicable)
 **Market**: [Market name]
 **Current Odds**: [%]
 **Volume**: [Trading volume]

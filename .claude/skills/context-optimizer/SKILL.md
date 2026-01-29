@@ -153,20 +153,20 @@ Main context only grows by ~500 tokens instead of ~20,000.
 # Context Checkpoint - 2025-12-29 18:30
 
 ## Session Summary
-Implemented Polymarket API integration for market resolution tracking.
+Implemented Kalshi API integration for market resolution tracking.
 
 ## Architectural Decisions
 - **Use polling over websockets**: Simpler, sufficient for 5-min update frequency
 - **Store raw API response**: Enables reprocessing without re-fetching
 
 ## Patterns Established
-- **Market ID format**: Use Polymarket's condition_id as primary key
+- **Market ID format**: Use Kalshi's market_id as primary key
 - **Error handling**: Retry 3x with exponential backoff, then log and skip
 
 ## Files Modified
 | File | Changes | Status |
 |------|---------|--------|
-| `src/clients/polymarket.ts` | Added getMarketOutcome() | done |
+| `src/clients/kalshi.ts` | Added getMarketOutcome() | done |
 | `src/db/storage.ts` | Added market_resolutions table | done |
 | `src/services/aggregator.ts` | Integrated resolution check | in-progress |
 

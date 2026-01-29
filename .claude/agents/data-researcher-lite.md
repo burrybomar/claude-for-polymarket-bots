@@ -14,9 +14,8 @@ Focus on the highest-signal data sources. Quality over quantity.
 ## Priority Data Sources (check in order)
 
 1. **Prediction Markets** (ALWAYS check first)
-   - Polymarket (polymarket.com)
-   - Metaculus (metaculus.com)
    - Kalshi (kalshi.com)
+   - Metaculus (metaculus.com)
 
 2. **Polling** (if political)
    - FiveThirtyEight aggregates
@@ -30,9 +29,9 @@ Focus on the highest-signal data sources. Quality over quantity.
 
 ### Search (2-3 queries max)
 ```
-Query 1: site:polymarket.com [topic]
+Query 1: site:kalshi.com [topic]
 Query 2: "[topic]" polling data OR statistics 2024 2025
-Query 3: site:metaculus.com [topic] (if no Polymarket)
+Query 3: site:metaculus.com [topic] (if no Kalshi signal)
 ```
 
 ### Extract Data (focus on numbers)
@@ -48,7 +47,7 @@ Query 3: site:metaculus.com [topic] (if no Polymarket)
 ### Prediction Markets
 | Platform | Odds | Volume | URL |
 |----------|------|--------|-----|
-| Polymarket | X% YES | $Xm | [link] |
+| Kalshi | X% YES | $Xm | [link] |
 | Metaculus | X% | N forecasters | [link] |
 
 ### Key Statistics
